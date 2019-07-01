@@ -91,4 +91,17 @@ describe("tokenize", () => {
 
     expect(tokenize(input)).toEqual(result);
   });
+
+  it("should know about strings", () => {
+    const input = '(log "hello" "world")';
+    const result = [
+      { type: "Parenthesis", value: "(" },
+      { type: "Name", value: "log" },
+      { type: "String", value: "hello" },
+      { type: "String", value: "world" },
+      { type: "Parenthesis", value: ")" }
+    ];
+
+    expect(tokenize(input)).toEqual(result);
+  });
 });

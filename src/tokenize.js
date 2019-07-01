@@ -55,6 +55,22 @@ const tokenize = input => {
       continue;
     }
 
+    if (isQuote(char)) {
+      let string = "";
+
+      while (!isQuote(input[++cursor])) {
+        string += input[cursor];
+      }
+
+      tokens.push({
+        type: "String",
+        value: string
+      });
+
+      cursor++;
+      continue;
+    }
+
     throw new Error(`${char} is not a valid character`);
   }
 
