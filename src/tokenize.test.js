@@ -52,4 +52,43 @@ describe("tokenize", () => {
 
     expect(tokenize(input)).toEqual(result);
   });
+
+  it("should be able to handle multi-digit numbers", () => {
+    const input = "(11 22)";
+
+    const result = [
+      { type: "Parenthesis", value: "(" },
+      { type: "Number", value: 11 },
+      { type: "Number", value: 22 },
+      { type: "Parenthesis", value: ")" }
+    ];
+
+    expect(tokenize(input)).toEqual(result);
+  });
+
+  it("should correctly tokenize a simple expression", () => {
+    const input = "(add 2 3)";
+    const result = [
+      { type: "Parenthesis", value: "(" },
+      { type: "Name", value: "add" },
+      { type: "Number", value: 2 },
+      { type: "Number", value: 3 },
+      { type: "Parenthesis", value: ")" }
+    ];
+
+    expect(tokenize(input)).toEqual(result);
+  });
+
+  it("should ignore whitespace", () => {
+    const input = "   (add    2 3)";
+    const result = [
+      { type: "Parenthesis", value: "(" },
+      { type: "Name", value: "add" },
+      { type: "Number", value: 2 },
+      { type: "Number", value: 3 },
+      { type: "Parenthesis", value: ")" }
+    ];
+
+    expect(tokenize(input)).toEqual(result);
+  });
 });
