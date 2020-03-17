@@ -1,4 +1,4 @@
-const { tokenize } = require("./tokenize");
+const { tokenize } = require("../src/tokenize");
 
 describe("tokenize", () => {
   it("should return an array", () => {
