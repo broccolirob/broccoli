@@ -11,24 +11,24 @@ const tokenize = input => {
   let cursor = 0;
 
   while (cursor < input.length) {
-    const char = input[cursor];
+    const character = input[cursor];
 
-    if (isParenthesis(char)) {
+    if (isParenthesis(character)) {
       tokens.push({
         type: "Parenthesis",
-        value: char
+        value: character
       });
       cursor++;
       continue;
     }
 
-    if (isWhitespace(char)) {
+    if (isWhitespace(character)) {
       cursor++;
       continue;
     }
 
-    if (isNumber(char)) {
-      let number = char;
+    if (isNumber(character)) {
+      let number = character;
 
       while (isNumber(input[++cursor])) {
         number += input[cursor];
@@ -41,21 +41,21 @@ const tokenize = input => {
       continue;
     }
 
-    if (isLetter(char)) {
-      let name = char;
+    if (isLetter(character)) {
+      let symbol = character;
 
       while (isLetter(input[++cursor])) {
-        name += input[cursor];
+        symbol += input[cursor];
       }
 
       tokens.push({
         type: "Name",
-        value: name
+        value: symbol
       });
       continue;
     }
 
-    if (isQuote(char)) {
+    if (isQuote(character)) {
       let string = "";
 
       while (!isQuote(input[++cursor])) {
@@ -71,7 +71,7 @@ const tokenize = input => {
       continue;
     }
 
-    throw new Error(`${char} is not a valid character`);
+    throw new Error(`${character} is not a valid character`);
   }
 
   return tokens;
