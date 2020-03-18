@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "broccoli": "bin/broccoli"
+  },
   "scripts": {
+    "start": "node src/repl.js",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -12,5 +16,11 @@
   "license": "ISC",
   "devDependencies": {
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "inquirer": "^7.1.0",
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5"
   }
 }
