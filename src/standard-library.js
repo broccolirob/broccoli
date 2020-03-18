@@ -14,7 +14,9 @@ const environment = {
   divide,
   modulo,
   log,
-  pi: Math.PI
+  pi: Math.PI,
+  max: Math.max,
+  min: Math.min
 };
 
 module.exports = { environment };
