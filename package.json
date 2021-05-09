@@ -21,7 +21,7 @@
     "@babel/generator": "^7.9.4",
     "chalk": "^3.0.0",
     "inquirer": "^7.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5"
   }
 }
